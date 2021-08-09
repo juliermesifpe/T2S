@@ -6,7 +6,7 @@
 
 /*cabecalho*/
 .cabecalho{
-    background: red;
+    background: gainsboro;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -88,7 +88,11 @@
     text-transform: capitalize;
 }
 #buttonRelatorio{
-    padding: 20px;
+   width: 25%;
+   padding: 5px;
+   margin-top: 10px;
+   text-transform: uppercase;
+   font-weight: bold;
 }
 .rodape{
     background: gainsboro;
@@ -100,6 +104,7 @@
 }
 .contato{
     align-self: center;
+    justify-self: center;
 }
 .contato li{
     padding: 10px 0;
