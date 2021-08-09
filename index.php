@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <?php include "head.php"; ?>
+        <?php include "configuracao.php"; ?>
         <title>Cadastro</title>
     </head>
    
@@ -11,8 +11,8 @@
         <?php if(!empty($_GET['index'])){echo $_GET['index'];}?>    
         
         <main>
-            <form action="incluir.php" method="post">
-                
+            <form action="funcoes.php" method="post">
+
                 <label for="">Número do contêiner:</label>
                 <input type="text" name="numeroConteiner" placeholder="Ex: 4 letras e 7 números. Ex: TEST1234567" 
                 minlength="11" maxlength="11" required>

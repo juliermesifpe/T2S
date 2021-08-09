@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <?php include "configuracao.php"; ?>
-        <title>Movimentação</title>
+        <title>Contêiner</title>
     </head>
    
     <body>
@@ -21,34 +21,36 @@
                     die(mysqli_connect_error());
                 }
                 
-                $sql = "SELECT * FROM movimentacao";
+                $sql = "SELECT * FROM conteiner";
                 $result = mysqli_query($conn, $sql);
                 
-                if(!empty($_GET['movimentacao'])){echo $_GET['movimentacao'];}
+                if(!empty($_GET['conteiner'])){echo $_GET['conteiner'];}
         
                 if (mysqli_num_rows($result) > 0) {
                     echo '<div class="tabela">';
                         echo '<table>';
                             echo '<thead>';
                                 echo '<tr>';
-                                    echo '<th>Id</th>';
-                                    echo '<th>Movimentação</th>';
-                                    echo '<th>Data Início</th>';
-                                    echo '<th>Data Final</th>';
-                                    echo '<th colspan="1">Número do Contêiner</th>';
-                                    echo '<th colspan="2">Opções</th>';
+                                    echo '<th>Número Contêiner</th>';
+                                    echo '<th>Cliente</th>';
+                                    echo '<th>Tipo</th>';
+                                    echo '<th>Status</th>';
+                                    echo '<th>Categoria</th>';
+                                    echo '<th colspan="1">Operações</th>';
+                                    echo '<th colspan="2">Contêiner</th>';
                                 echo '</tr>';
                             echo '</thead>';
-                            while($row = mysqli_fetch_assoc($result)) {   
+                        while($row = mysqli_fetch_assoc($result)) {   
                             echo '<tbody>';
                                 echo '<tr>';
-                                    echo '<td>'.$row['id'].'</td>';
-                                    echo '<td>'.$row['movimentacao'].'</td>';
-                                    echo '<td>'.$row['dataInicio'].'</td>';
-                                    echo '<td>'.$row['dataFim'].'</td>';
-                                    echo '<td>'.$row['fkNumeroConteiner'].'</td>';
-                                    echo '<td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'">Atualizar</a></td>';
-                                    echo '<td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'">Excluir</a></td>';  
+                                    echo '<td>'.$row['numeroConteiner'].'</td>';
+                                    echo '<td>'.$row['cliente'].'</td>';
+                                    echo '<td>'.$row['tipo'].'</td>';
+                                    echo '<td>'.$row['status'].'</td>';
+                                    echo '<td>'.$row['categoria'].'</td>';
+                                    echo '<td><a href="operacoes.php?operacoes='.$row['numeroConteiner'].'">Realizar</a></td>';
+                                    echo '<td><a href="atualizarConteiner.php?atualizarConteiner='.$row['numeroConteiner'].'">Atualizar</a></td>';
+                                    echo '<td><a href="funcoes.php?excluirConteiner='.$row['numeroConteiner'].'">Excluir</a></td>';  
                                 echo '</tr>';
                             echo '</tbody>';      
                         }
