@@ -57,7 +57,7 @@
                             echo '</tr>';
                         echo '</tfoot>'; 
                     echo '</table>';
-                    echo '<a href="relatorioMovimentacao.php"><input type="button" value="Relatório"></a>';
+                    echo '<a href="relatorioMovimentacao.php"><input type="button" value="Gerar Total" id="buttonRelatorio"></a>';
                 echo '</div>';
            ?>
         </main>

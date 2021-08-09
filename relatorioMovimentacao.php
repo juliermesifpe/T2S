@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
         <?php include "configuracao.php";?>
         <title>Relatório</title>
@@ -26,7 +26,6 @@
             
             $result = mysqli_query($conn, $sql);
 
-            if (mysqli_num_rows($result) > 0) {
                 echo '<div class="tabela">';
                 echo '<h1>Total de Movimentações</h1>';
                     echo '<table>';
@@ -52,8 +51,7 @@
                                 echo '<td>'.$row['movimentacao'].'</td>';
                                 echo '<td>'.$row['fkNumeroConteiner'].'</td>';
                             echo '</tr>';
-                        echo '</tbody>';      
-                        }
+                        echo '</tbody>';}
                     echo '</table>';
                 echo '</div>';
                 
@@ -71,9 +69,7 @@
                         echo '<tbody>';
                     echo '</table>';
                 echo '</div>';
-            }else {
-            
-            }      
+                 
             mysqli_close($conn);
         ?>
         </main>
