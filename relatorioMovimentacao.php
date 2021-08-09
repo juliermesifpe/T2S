@@ -28,6 +28,7 @@
 
             if (mysqli_num_rows($result) > 0) {
                 echo '<div class="tabela">';
+                echo '<h1>Total de Movimentações</h1>';
                     echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
@@ -57,7 +58,7 @@
                 echo '</div>';
                 
                 echo '<div class="tabela">';
-                echo '<table>';
+                    echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
                                 echo '<th>Exportação</th>';
@@ -66,10 +67,8 @@
                         echo '</thead>';
                         echo '<tbody>';
                             echo '<tr>';
-                                echo '<td></td>';
-                                echo '<td>'.$row['movimentacao'].'</td>';
-                                echo '<td>'.$row['C'].'</td>';
                             echo '</tr>';
+                        echo '<tbody>';
                     echo '</table>';
                 echo '</div>';
             }else {

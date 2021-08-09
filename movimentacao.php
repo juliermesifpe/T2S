@@ -28,6 +28,7 @@
                 if(!empty($_GET['movimentacao'])){echo $_GET['movimentacao'];}
         
                 echo '<div class="tabela">';
+                echo '<h1>Movimentações Realizadas</h1>';
                     echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
@@ -44,19 +45,23 @@
                             echo '<tr>';
                                 echo '<td>'.$row['id'].'</td>';
                                 echo '<td>'.$row['movimentacao'].'</td>';
-                                echo '<td>'.$row['dataInicio'].'</td>';
-                                echo '<td>'.$row['dataFim'].'</td>';
+                                echo '<td>'.date("d/m/Y H:i:s", strtotime($row['dataInicio'])).'</td>';
+                                echo '<td>'.date("d/m/Y H:i:s", strtotime($row['dataFim'])).'</td>';
                                 echo '<td>'.$row['fkNumeroConteiner'].'</td>';
-                                echo '<td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'">Atualizar</a></td>';
-                                echo '<td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'">Excluir</a></td>';  
+                                echo '<td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'"> <input type="button" value="Atualizar"></a></td>';
+                                echo '<td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'"> <input type="button" value="Excluir"></a></td>';  
                             echo '</tr>';
-                        echo '</tbody>';}     
+                        echo '</tbody>';} 
+                        echo '<tfoot>';
+                            echo '<tr>';
+                            echo '</tr>';
+                        echo '</tfoot>'; 
                     echo '</table>';
+                    echo '<a href="relatorioMovimentacao.php"><input type="button" value="Relatório"></a>';
                 echo '</div>';
-                echo '<a href="relatorioMovimentacao.php"><input type="button" value="Relatório"></a>';
            ?>
         </main>
-
+                           
         <?php include "rodape.php"; ?>
     </body>
 </html>

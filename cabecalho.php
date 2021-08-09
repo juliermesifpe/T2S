@@ -3,6 +3,7 @@
         <div class="logo">
             <img src="logo.jpeg" alt="">
         </div>
+        
         <div class="navegacao">
             <nav>
                 <ul>

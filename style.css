@@ -3,16 +3,87 @@
     margin: 0;
     padding: 0;
 }
+
+/*cabecalho*/
 .cabecalho{
-    background: red;
+    background: gainsboro;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 .logo{
-    background: rosybrown;
-    justify-self: center
+    justify-self: center;
 }
 .navegacao{
-    background: rgb(76, 78, 85)8, 85)8, 85);
     align-self: center;
+}
+.navegacao li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.navegacao a{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+}
+.navegacao a:hover{
+    color:white;
+}
+
+/*formulario*/
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 50%;
+    margin: 100px auto;
+    padding: 18px;
+    border: solid;
+    border-radius: 10px;
+}
+
+.formulario form{
+    background-color: gainsboro;
+    border: solid;
+    border-radius: 10px;
+    padding: 18px;
+}
+.formulario h1{
+    text-align: center;
+}
+.formulario label{
+    display: block;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.formulario input, select, option{
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+}
+.tabela{
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    width: 80%;
+    margin: 100px auto;
+    border: solid;
+    padding: 20px;
+    border-radius: 10px;
+}
+.tabela th{
+    background: gainsboro;
+    border: solid;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.tabela td{
+    border: solid;
+    padding: 5px;
+    text-transform: capitalize;
 }

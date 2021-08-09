@@ -27,6 +27,7 @@
                 if(!empty($_GET['conteiner'])){echo $_GET['conteiner'];}
 
                 echo '<div class="tabela">';
+                    echo '<h1>Contêiner Cadastrados</h1>';
                     echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
@@ -48,9 +49,9 @@
                                 echo '<td>'.$row['tipo'].'</td>';
                                 echo '<td>'.$row['status'].'</td>';
                                 echo '<td>'.$row['categoria'].'</td>';
-                                echo '<td><a href="operacoes.php?operacoes='.$row['numeroConteiner'].'">Realizar</a></td>';
-                                echo '<td><a href="atualizarConteiner.php?atualizarConteiner='.$row['numeroConteiner'].'">Atualizar</a></td>';
-                                echo '<td><a href="funcoes.php?excluirConteiner='.$row['numeroConteiner'].'">Excluir</a></td>';  
+                                echo '<td><a href="operacoes.php?operacoes='.$row['numeroConteiner'].'"><input type="button" value="Realizar"></a></td>';
+                                echo '<td><a href="atualizarConteiner.php?atualizarConteiner='.$row['numeroConteiner'].'"><input type="button" value="Atualizar"></a></td>';
+                                echo '<td><a href="funcoes.php?excluirConteiner='.$row['numeroConteiner'].'"><input type="button" value="Excluir"></a></td>';  
                             echo '</tr>';
                         echo '</tbody>';}
                     echo '</table>';

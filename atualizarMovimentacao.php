@@ -25,7 +25,8 @@
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
             ?>
-            
+            <div class="formulario">
+                <h1>Atualizar Movimentação</h1>
             <form action="funcoes.php" method="post">
                 <input type="hidden" name="atualizarMovimentacao" value="atualizarMovimentacao">
                 
@@ -56,11 +57,11 @@
                 <input type="datetime-local" name="dataFim" required>
 
                 <input type="submit" value="Enviar">
-                <input type="reset" value="Limpar">
                 <a href="movimentacao.php"><input type="button" value="Voltar"></a>
             </form>
+            </div>
         </main>
-
+               
         <?php include "rodape.php"?>
     </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <?php include "configuracao.php"; ?>
-        <title>Atualizar</title>
+        <title>Atualizar Contêiner</title>
     </head>
    
     <body>
@@ -28,34 +28,44 @@
                 $row = mysqli_fetch_assoc($result);
             ?>
             
-            <form action="funcoes.php" method="post">
-                <input type="hidden" name="conteinerAtualizar" value="conteinerAtualizar">
+            <div class="formulario">
+                <h1>Atualizar Informações do Contêiner</h1>
+                <form action="funcoes.php" method="post">
+                    <input type="hidden" name="conteinerAtualizar" value="conteinerAtualizar">
 
-                <label for="">Número do contêiner:</label>
-                <input value="<?php echo $row['numeroConteiner']?>" disabled>
-                <input type="hidden" name="numeroConteiner" value="<?php echo $row['numeroConteiner']?>" required>
+                    <label for="">Número do contêiner:</label>
+                    <input value="<?php echo $row['numeroConteiner']?>" disabled>
+                    <input type="hidden" name="numeroConteiner" value="<?php echo $row['numeroConteiner']?>" required>
 
-                <label for="">Cliente:</label>
-                <input type="text" name="cliente" placeholder="Ex: Transpotes LTDA" 
-                minlength="2" maxlength="30" value="<?php echo $row['cliente']?>" required >
+                    <label for="">Cliente:</label>
+                    <input type="text" name="cliente" placeholder="Ex: Transpotes LTDA" 
+                    minlength="2" maxlength="30" value="<?php echo $row['cliente']?>" required >
 
-                <label for="">Tipo:</label>
-                <input type="number" name="tipo" placeholder="Ex: 20 ou 40" 
-                minlength="2" maxlength="2" value="<?php echo $row['tipo']?>" required>
+                    <label for="">Tipo:</label>
+                    <select name="tipo" required>
+                        <option Value=""><?php echo $row['tipo']?></option>
+                        <option Value="20">20</option>
+                        <option value="40">40</option>
+                    </select>
 
-                
-                <label for="">Status:</label>
-                <input type="text" name="status" placeholder="Ex: Cheio ou Vazio" 
-                minlength="5" maxlength="5" value="<?php echo $row['status']?>" required>
+                    <label for="">Status:</label>
+                    <select name="status" required>
+                        <option Value=""><?php echo $row['status']?></option>
+                        <option Value="cheio">Cheio</option>
+                        <option value="vazio">Vazio</option>
+                    </select>
 
-                <label for="">Categoria:</label>
-                <input type="text" name="categoria" placeholder="Ex: Importação ou Exportação" 
-                minlength="10" maxlength="10" value="<?php echo $row['categoria']?>" required>
+                    <label for="">Categoria:</label>
+                    <select name="categoria" required>
+                        <option value=""><?php echo $row['categoria']?></option>
+                        <option Value="importacao">Importação</option>
+                        <option value="exportacao">Exportação</option>
+                    </select>
 
-                <input type="submit" value="Enviar">
-                <input type="reset" value="Limpar">
-                <a href="conteiner.php"><input type="button" value="Voltar"></a>
-            </form>
+                    <input type="submit" value="Enviar">
+                    <a href="conteiner.php"><input type="button" value="Voltar"></a>
+                </form>
+            </div>
         </main>
 
         <?php include "rodape.php"; ?>

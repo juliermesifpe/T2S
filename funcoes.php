@@ -1,6 +1,14 @@
 <?php
 
-    if(!empty($_POST['conteinerIncluir'])){incluirConteiner();}else{}
+    if(!empty($_POST['conteinerIncluir'])){
+      incluirConteiner();
+    }else{ 
+        //echo $_POST['numeroConteiner'];
+        //echo $_POST['cliente'];
+        //echo $_POST['tipo'];
+        //echo $_POST['status'];
+        //echo $_POST['categoria'];
+    }
 
     if(!empty($_POST['conteinerAtualizar'])){atualizarConteiner();}else{}
 
@@ -29,7 +37,7 @@
             //header('Location: index.php?index=Criação do banco de dados sucesso!');
         }
         else {
-            header('Location: index.php?index=Criação do banco de dados erro!');
+            //header('Location: index.php?index=Criação do banco de dados erro!');
             //mysqli_connect_error();
         }
 
@@ -60,8 +68,8 @@
             //header('Location: index.php?index=Criação da tabela contêiner sucesso!');
         } 
         else {
-            header('Location: index.php?index=Criação da tabela contêiner erro!');
-             //mysqli_connect_error();
+            //header('Location: index.php?index=Criação da tabela contêiner erro!');
+            //mysqli_connect_error();
         }
 
         $sql = "CREATE TABLE IF NOT EXISTS movimentacao (
@@ -79,7 +87,7 @@
             //header('Location: index.php?index=Sucesso criação de tabela movimentacao!');
         } 
         else {
-            header('Location: index.php?index=Erro criação da tabela movimentacao!');
+            //header('Location: index.php?index=Erro criação da tabela movimentacao!');
             //mysqli_connect_error();
         }
         mysqli_close($conn);
