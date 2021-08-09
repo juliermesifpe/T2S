@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.cabecalho{
+    background: red;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.logo{
+    background: rosybrown;
+    justify-self: center
+}
+.navegacao{
+    background: rgb(76, 78, 85)8, 85)8, 85);
+    align-self: center;
+}
