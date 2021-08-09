@@ -29,6 +29,8 @@
             ?>
             
             <form action="funcoes.php" method="post">
+                <input type="hidden" name="conteinerAtualizar" value="conteinerAtualizar">
+
                 <label for="">Número do contêiner:</label>
                 <input value="<?php echo $row['numeroConteiner']?>" disabled>
                 <input type="hidden" name="numeroConteiner" value="<?php echo $row['numeroConteiner']?>" required>

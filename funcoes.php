@@ -1,64 +1,16 @@
 <?php
 
-    criarBanco();
-    criarTabelas();
+    if(!empty($_POST['conteinerIncluir'])){incluirConteiner();}else{}
 
-    // incluir contêiner
-    if(
-        !empty($_POST['numeroConteiner'])&&
-        !empty($_POST['cliente'])&&
-        !empty($_POST['tipo'])&&
-        !empty($_POST['status'])&&
-        !empty($_POST['categoria'])
-    )
-    {   
-        incluirConteiner();
-    }
-    
-    // atualizar contêiner
-    if(
-        !empty($_POST['cliente'])&&
-        !empty($_POST['tipo'])&&
-        !empty($_POST['status'])&&
-        !empty($_POST['categoria'])
-    )
-    {   
-        atualizarConteiner();
-    }
+    if(!empty($_POST['conteinerAtualizar'])){atualizarConteiner();}else{}
 
-    // excluir contêiner
-    if(!empty($_GET['excluirConteiner']))
-    {
-        excluirConteiner();
-    }
+    if(!empty($_GET['excluirConteiner'])){excluirConteiner();}else{}
 
-    // incluir movimentação
-    if(
-        !empty($_POST['fkNumeroConteiner'])&&
-        !empty($_POST['movimentacao']) && 
-        !empty($_POST['dataInicio']) && 
-        !empty($_POST['dataFim']))
-    {   
-       incluirMovimentacao();
-       
-    }
+    if(!empty($_POST['incluirMovimentacao'])){incluirMovimentacao();}else{}
 
-    //atualizar movimentação
-    if(
-        !empty($_POST['id'])&&
-        !empty($_POST['movimentacao'])&&
-        !empty($_POST['dataInicio'])&&
-        !empty($_POST['dataFim'])
-    )
-    {   
-        atualizarMovimentacao();
-    }
+    if(!empty($_POST['atualizarMovimentacao'])){atualizarMovimentacao();}else{}
 
-    // excluir movimentação
-    if(!empty($_GET['excluirMovimentacao']))
-    {
-        excluirMovimentacao();
-    }
+    if(!empty($_GET['excluirMovimentacao'])){excluirMovimentacao();}else{}
     
     function criarBanco(){
         $servername = "localhost:3308";

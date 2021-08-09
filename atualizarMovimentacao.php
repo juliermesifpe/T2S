@@ -27,6 +27,8 @@
             ?>
             
             <form action="funcoes.php" method="post">
+                <input type="hidden" name="atualizarMovimentacao" value="atualizarMovimentacao">
+                
                 <label for="">Operação:</label>
                 <input value="<?php echo $row['id']?>" disabled>
                 <input type="hidden" name="id" value="<?php echo $row['id']?>" required>

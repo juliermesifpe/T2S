@@ -12,7 +12,8 @@
         
         <main>
             <form action="funcoes.php" method="post">
-
+                <input type="hidden" name="conteinerIncluir" value="conteinerIncluir">
+                
                 <label for="">Número do contêiner:</label>
                 <input type="text" name="numeroConteiner" placeholder="Ex: 4 letras e 7 números. Ex: TEST1234567" 
                 minlength="11" maxlength="11" required>

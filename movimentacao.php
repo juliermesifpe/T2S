@@ -6,6 +6,7 @@
     </head>
    
     <body>
+        
         <?php include "cabecalho.php"; ?>
 
         <main>
@@ -26,38 +27,33 @@
                 
                 if(!empty($_GET['movimentacao'])){echo $_GET['movimentacao'];}
         
-                if (mysqli_num_rows($result) > 0) {
-                    echo '<div class="tabela">';
-                        echo '<table>';
-                            echo '<thead>';
-                                echo '<tr>';
-                                    echo '<th>Id</th>';
-                                    echo '<th>Movimentação</th>';
-                                    echo '<th>Data Início</th>';
-                                    echo '<th>Data Final</th>';
-                                    echo '<th colspan="1">Número do Contêiner</th>';
-                                    echo '<th colspan="2">Opções</th>';
-                                echo '</tr>';
-                            echo '</thead>';
-                            while($row = mysqli_fetch_assoc($result)) {   
-                            echo '<tbody>';
-                                echo '<tr>';
-                                    echo '<td>'.$row['id'].'</td>';
-                                    echo '<td>'.$row['movimentacao'].'</td>';
-                                    echo '<td>'.$row['dataInicio'].'</td>';
-                                    echo '<td>'.$row['dataFim'].'</td>';
-                                    echo '<td>'.$row['fkNumeroConteiner'].'</td>';
-                                    echo '<td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'">Atualizar</a></td>';
-                                    echo '<td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'">Excluir</a></td>';  
-                                echo '</tr>';
-                            echo '</tbody>';      
-                        }
-                        echo '</table>';
-                    echo '</div>'; 
-                }
-                else {
-                    echo 'Cadastre seus contêiner eles seram listados aqui!';
-                }      
+                echo '<div class="tabela">';
+                    echo '<table>';
+                        echo '<thead>';
+                            echo '<tr>';
+                                echo '<th>Id</th>';
+                                echo '<th>Movimentação</th>';
+                                echo '<th>Data Início</th>';
+                                echo '<th>Data Final</th>';
+                                echo '<th colspan="1">Número do Contêiner</th>';
+                                echo '<th colspan="2">Opções</th>';
+                            echo '</tr>';
+                        echo '</thead>';
+                        while($row = mysqli_fetch_assoc($result)) {   
+                        echo '<tbody>';
+                            echo '<tr>';
+                                echo '<td>'.$row['id'].'</td>';
+                                echo '<td>'.$row['movimentacao'].'</td>';
+                                echo '<td>'.$row['dataInicio'].'</td>';
+                                echo '<td>'.$row['dataFim'].'</td>';
+                                echo '<td>'.$row['fkNumeroConteiner'].'</td>';
+                                echo '<td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'">Atualizar</a></td>';
+                                echo '<td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'">Excluir</a></td>';  
+                            echo '</tr>';
+                        echo '</tbody>';}     
+                    echo '</table>';
+                echo '</div>';
+                echo '<a href="relatorioMovimentacao.php"><input type="button" value="Relatório"></a>';
            ?>
         </main>
 
