@@ -104,6 +104,7 @@
 }
 .contato{
     align-self: center;
+    justify-self: center;
 }
 .contato li{
     padding: 10px 0;
