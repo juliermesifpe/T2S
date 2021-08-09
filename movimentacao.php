@@ -34,8 +34,8 @@
                             echo '<tr>';
                                 echo '<th>Id</th>';
                                 echo '<th>Movimentação</th>';
-                                echo '<th>Data Início</th>';
-                                echo '<th>Data Final</th>';
+                                echo '<th>Data e Hora Inicial</th>';
+                                echo '<th>Data e Hora Final</th>';
                                 echo '<th colspan="1">Número do Contêiner</th>';
                                 echo '<th colspan="2">Opções</th>';
                             echo '</tr>';
