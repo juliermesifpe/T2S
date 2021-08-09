@@ -6,7 +6,7 @@
 
 /*cabecalho*/
 .cabecalho{
-    background: red;
+    background: gainsboro;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
