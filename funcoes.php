@@ -1,5 +1,6 @@
 <?php
-
+    
+    
     if(!empty($_POST['conteinerIncluir'])){conteinerIncluir();}else{}
 
     if(!empty($_POST['conteinerAtualizar'])){conteinerAtualizar();}else{}
@@ -215,9 +216,9 @@
         VALUES ('$movimentacao', '$dataInicio', '$dataFim', '$fkNumeroConteiner')";
      
          if (mysqli_query($conn, $sql)) {
-            header('Location: movimentacaoListar.php?retorno= incluirMovimentacao() SUCESSO!');
+            header('Location: conteinerListar.php?retorno= incluirMovimentacao() SUCESSO!');
          } else {
-            header('Location: movimentacaoListar.php?retorno= incluirMovimentacao() ERRO!');
+            header('Location: conteinerListar.php?retorno= incluirMovimentacao() ERRO!');
             //mysqli_connect_error();
          }
          mysqli_close($conn);

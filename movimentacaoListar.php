@@ -27,7 +27,7 @@
                     $result = mysqli_query($conn, $sql);
                 }else{
                     $sql = "SELECT * FROM movimentacao ORDER BY id";
-                $result = mysqli_query($conn, $sql);
+                    $result = mysqli_query($conn, $sql);
                 }
                 
                 if(!empty($_GET['retorno'])){echo $_GET['retorno'];}
