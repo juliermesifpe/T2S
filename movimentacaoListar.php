@@ -21,14 +21,20 @@
                 if (!$conn) {
                     die(mysqli_connect_error());
                 }
-                
-                $sql = "SELECT * FROM movimentacao";
+
+                if(!empty($_POST['movimentacaoListarOrdenar'])){
+                    $sql = "SELECT * FROM movimentacao ORDER BY ".$_POST['movimentacaoListarOrdenar']." ";
+                    $result = mysqli_query($conn, $sql);
+                }else{
+                    $sql = "SELECT * FROM movimentacao";
                 $result = mysqli_query($conn, $sql);
+                }
                 
-                if(!empty($_GET['movimentacao'])){echo $_GET['movimentacao'];}
+                if(!empty($_GET['retorno'])){echo $_GET['retorno'];}
         
                 echo '<div class="tabela">';
-                echo '<h1>Movimentações Realizadas</h1>';
+                    echo '<h1>Movimentações Realizadas</h1>';
+                    
                     echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
@@ -57,8 +63,29 @@
                             echo '</tr>';
                         echo '</tfoot>'; 
                     echo '</table>';
-                    echo '<a href="relatorioMovimentacao.php"><input type="button" value="Gerar Total" id="buttonRelatorio"></a>';
-                echo '</div>';
+                    echo'
+                        <form action="movimentacaoListar.php" method="post">
+                            <div class="movimentacaoPesquisar">
+                                <select name="movimentacaoListarOrdenar" class="movimentacaoListarOrdenar" required>
+                                    <option value="">Ordenar</option>
+                                    <option Value="id">Número Id</option>
+                                    <option value="movimentacao">Movimentação</option>
+                                    <option Value="dataInicio">Data e Hora Inicial</option>
+                                    <option value="dataFim">Data e Hora Final</option>
+                                    <option value="fkNumeroConteiner">Número Contêiner</option>
+                                </select>
+
+                                <section class="movimentacaoFiltrar">
+                                    <input type="submit" value="Filtrar" >
+                                </section>
+
+                                <section class="movimentacaoRelatorio">
+                                    <a href="movimentacaoRelatorio.php"><input type="button" value="Relatório"></a>
+                                </section>
+                            </div>
+                        </form>
+                    ';
+                echo '</div>'
            ?>
         </main>
                            

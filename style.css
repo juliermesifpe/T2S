@@ -27,7 +27,7 @@
     color: black;
 }
 .navegacao a:hover{
-    color:white;
+    color:royalblue;
 }
 
 /*formulario*/
@@ -40,7 +40,6 @@
     border: solid;
     border-radius: 10px;
 }
-
 .formulario form{
     background-color: gainsboro;
     border: solid;
@@ -65,13 +64,14 @@
     font-size: 20px;
     text-align: center;
 }
+
+/*tabela*/
 .tabela{
     
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
-    width: 80%;
-    margin: 100px auto;
+    margin: 100px 10%;
     border: solid;
     padding: 20px;
     border-radius: 10px;
@@ -79,21 +79,16 @@
 .tabela th{
     background: gainsboro;
     border: solid;
-    padding: 10px;
+    padding: 5px;
     text-transform: uppercase;
 }
 .tabela td{
     border: solid;
-    padding: 5px;
+    padding: 2px;
     text-transform: capitalize;
 }
-#buttonRelatorio{
-   width: 25%;
-   padding: 5px;
-   margin-top: 10px;
-   text-transform: uppercase;
-   font-weight: bold;
-}
+
+/*rodape*/
 .rodape{
     background: gainsboro;
     display: grid;
@@ -118,4 +113,98 @@
 }
 .contato img{
     width: 30px;
+}
+
+/*identificadores*/
+.pesquisar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-self: center;
+    width: 50%;
+    margin: 0 auto;
+    column-gap: 50px;
+}
+.ordenar{
+   all: revert;
+   padding: 3px;
+   font-weight: bold;
+   background: gainsboro;
+   border-radius: 10px;
+   grid-row: 2;
+}
+.ordenar:hover{
+    color: royalblue;
+ }
+ .filtrar{
+    grid-row: 2; 
+ }
+.filtrar input{
+    width: 100%;
+    padding: 3px;
+    font-weight: bold;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+.filtrar input:hover{
+    color: royalblue;
+}
+.relatorio input{
+    width: 100%;
+    padding: 3px;
+    font-weight: bold;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.movimentacaoPesquisar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-self: center;
+    width: 60%;
+    margin: 0 auto;
+    column-gap: 50px;
+}
+.movimentacaoListarOrdenar{
+   all: revert;
+   padding: 3px;
+   font-weight: bold;
+   background: gainsboro;
+   border-radius: 10px;
+   grid-column: 1;
+   grid-row: 2;
+}
+.movimentacaoListarOrdenar:hover{
+    color: royalblue;
+   
+ }
+ .movimentacaoFiltrar{
+    grid-row: 2; 
+ }
+.movimentacaoFiltrar input{
+    width: 100%;
+    padding: 3px;
+    font-weight: bold;
+    background-color: gainsboro;
+    border-radius: 10px;
+    grid-row: 2;
+}
+.movimentacaoFiltrar input:hover{
+    color: royalblue;
+}
+.movimentacaoRelatorio{
+    grid-row: 2; 
+}
+.movimentacaoRelatorio input{
+    width: 100%;
+    padding: 3px;
+    font-weight: bold;
+    background-color: gainsboro;
+    border-radius: 10px;
+    grid-column: 3;
+    grid-row: 2;
+}
+.movimentacaoRelatorio input:hover{
+    color: royalblue;
 }

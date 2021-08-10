@@ -12,7 +12,7 @@
             <div class="formulario">
                 <h1>Realizar Movimentação</h1>
                 <form action="funcoes.php" method="post">
-                    <input type="hidden" name="incluirMovimentacao" value="incluirMovimentaca">
+                    <input type="hidden" name="incluirMovimentacao" value="incluirMovimentacao">
                         
                     <label for="">Número do contêiner:</label>
                     <input value="<?php echo $_GET['operacoes']?>" disabled>

@@ -1,18 +1,11 @@
 <?php
 
-    if(!empty($_POST['conteinerIncluir'])){
-      incluirConteiner();
-    }else{ 
-        //echo $_POST['numeroConteiner'];
-        //echo $_POST['cliente'];
-        //echo $_POST['tipo'];
-        //echo $_POST['status'];
-        //echo $_POST['categoria'];
-    }
+    if(!empty($_POST['conteinerIncluir'])){conteinerIncluir();}else{}
 
-    if(!empty($_POST['conteinerAtualizar'])){atualizarConteiner();}else{}
+    if(!empty($_POST['conteinerAtualizar'])){conteinerAtualizar();}else{}
 
-    if(!empty($_GET['excluirConteiner'])){excluirConteiner();}else{}
+
+    if(!empty($_GET['conteinerExcluir'])){conteinerExcluir();}else{}
 
     if(!empty($_POST['incluirMovimentacao'])){incluirMovimentacao();}else{}
 
@@ -93,7 +86,7 @@
         mysqli_close($conn);
     }
 
-    function incluirConteiner(){
+    function conteinerIncluir(){
         $servername = "localhost:3308";
         $username = "root";
         $password = "";
@@ -115,39 +108,15 @@
         VALUES ('$numeroConteiner', '$cliente', '$tipo', '$status', '$categoria')";
     
         if (mysqli_query($conn, $sql)) {
-            header('Location: index.php?index=Cadastro contêiner sucesso!');
+            header('Location: index.php?index= conteinerIncluir() SUCESSO!');
         } else {
-            header('Location: index.php?index=Cadastro contêiner erro!');
+            header('Location: index.php?index= conteinerIncluir() ERRO!');
             //mysqli_connect_error();
         }
         mysqli_close($conn);
     }
 
-    function excluirConteiner(){
-        $servername = "localhost:3308";
-        $username = "root";
-        $password = "";
-        $dbname = "T2S";
-    
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        
-        if (!$conn) {
-            die(mysqli_connect_error());
-        }
-        
-        //$numeroConteiner = $_GET['excluir'];
-
-        $sql = "DELETE FROM conteiner WHERE numeroConteiner='".$_GET['excluirConteiner']."'";
-    
-        if (mysqli_query($conn, $sql)) {
-            header('Location: conteiner.php?conteiner=Exclusão contêiner sucesso!');
-        } else {
-            header('Location: conteiner.php?conteiner=Exclusão contêiner erro!');
-        }
-        mysqli_close($conn);
-    }
-
-    function atualizarConteiner(){
+    function conteinerAtualizar(){
         $servername = "localhost:3308";
         $username = "root";
         $password = "";
@@ -168,11 +137,50 @@
         $sql = "UPDATE conteiner SET cliente='$cliente', tipo='$tipo', `status`='$status', categoria='$categoria' WHERE numeroConteiner='$numeroConteiner'";
     
         if (mysqli_query($conn, $sql)) {
-            header('Location: conteiner.php?conteiner=Atualização contêiner sucesso!');
+            header('Location: conteiner.php?retorno= conteinerAtualizar() SUCESSO!');
         } else {
-            header('Location: conteiner.php?conteiner=Atualização contêiner erro!');
+            header('Location: conteiner.php?retorno= conteinerAtualizar() ERRO!');
         }
     
+        mysqli_close($conn);
+    }
+
+    function conteinerOrdenar(){
+        $servername = "localhost:3308";
+        $username = "root";
+        $password = "";
+        $dbname = "T2S";
+    
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        
+        if (!$conn) {
+            die(mysqli_connect_error());
+        }
+        
+        $sql = "SELECT * FROM conteiner ORDER BY '".$_POST['conteinerOrdenar']."' ";
+    }
+
+    function conteinerExcluir(){
+        $servername = "localhost:3308";
+        $username = "root";
+        $password = "";
+        $dbname = "T2S";
+    
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        
+        if (!$conn) {
+            die(mysqli_connect_error());
+        }
+        
+        //$numeroConteiner = $_GET['excluir'];
+
+        $sql = "DELETE FROM conteiner WHERE numeroConteiner='".$_GET['conteinerExcluir']."'";
+    
+        if (mysqli_query($conn, $sql)) {
+            header('Location: conteinerListar.php?conteiner=Exclusão contêiner sucesso!');
+        } else {
+            header('Location: conteinerListar.php?conteiner=Exclusão contêiner erro!');
+        }
         mysqli_close($conn);
     }
     
@@ -199,9 +207,9 @@
         VALUES ('$movimentacao', '$dataInicio', '$dataFim', '$fkNumeroConteiner')";
      
          if (mysqli_query($conn, $sql)) {
-            header('Location: movimentacao.php?movimentacao=Cadastro movimentação sucesso!');
+            header('Location: movimentacaoListar.php?retorno= incluirMovimentacao() SUCESSO!');
          } else {
-            header('Location: conteiner.php?conteiner=Cadastro movimentação erro!');
+            header('Location: movimentacaoListar.php?retorno= incluirMovimentacao() ERRO!');
             //mysqli_connect_error();
          }
          mysqli_close($conn);
@@ -224,9 +232,9 @@
         $sql = "DELETE FROM movimentacao WHERE id='".$_GET['excluirMovimentacao']."'";
     
         if (mysqli_query($conn, $sql)) {
-            header('Location: movimentacao.php?movimentacao=Exclusão movimentação sucesso!');
+            header('Location: movimentacaoListar.php?retorno= excluirMovimentacao() SUCESSO!');
         } else {
-            header('Location: conteiner.php?conteiner=Exclusão movimentação erro!');
+            header('Location: movimentacaoListar.php?retorno= excluirMovimentacao() ERRO!');
         }
         mysqli_close($conn);
     }
@@ -251,9 +259,9 @@
         $sql = "UPDATE movimentacao SET movimentacao='$movimentacao', dataInicio='$dataInicio', dataFim='$dataFim' WHERE id='$id'";
     
         if (mysqli_query($conn, $sql)) {
-            header('Location: movimentacao.php?movimentacao=Atualização movimentação sucesso!');
+            header('Location: movimentacaoListar.php?retorno= atualizarMovimentacao() SUCESSO!');
         } else {
-            header('Location: movimentacao.php?movimentacao=Atualização movimentação erro!');
+            header('Location: movimentacaoListar.php?retorno= atualizarMovimentacao() ERRO!');
         }
     
         mysqli_close($conn);
