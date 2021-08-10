@@ -41,7 +41,7 @@
                             echo '<tr>';
                                 echo '<th>Cliente</th>';
                                 echo '<th>Quantidade</th>';
-                                echo '<th>Movimentacao</th>';
+                                echo '<th>Movimentação</th>';
                             echo '</tr>';
                         echo '</thead>';
                        
@@ -91,21 +91,31 @@
                 ';
                 echo '</div>';
                 
-                echo '<div class="tabela">';
-                    echo '<table>';
-                        echo '<thead>';
-                            echo '<tr>';
-                                echo '<th>Exportação</th>';
-                                echo '<th>Importação</th>';
-                            echo '</tr>';
-                        echo '</thead>';
-                        echo '<tbody>';
-                            echo '<tr>';
-                            echo '</tr>';
-                        echo '<tbody>';
-                    echo '</table>';
-                echo '</div>';
-                 
+                $sql = "SELECT cliente, categoria, COUNT(*) AS quantidade FROM conteiner GROUP BY categoria ORDER BY categoria";
+                $result = mysqli_query($conn, $sql);
+                
+                echo'<div class="tabela"><table>
+                        <h1>Total Importações e Exportações</h1>
+                        
+                        <thead>
+                            <tr> 
+                                <th>Quantidade</th>
+                                <th>Categoria</th>
+                            </tr>
+                        </thead>
+                    ';
+                    while(($row = mysqli_fetch_assoc($result))){
+                    echo'
+                        <tbody>
+                            <tr> 
+                                <td>'.$row['quantidade'].'</td>
+                                <td>'.$row['categoria'].'</td>
+                            </tr>
+                        </tbody>
+                    
+                    ';}
+                echo'</table></div>';
+                
             mysqli_close($conn);
         ?>
         </main>
