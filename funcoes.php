@@ -4,7 +4,6 @@
 
     if(!empty($_POST['conteinerAtualizar'])){conteinerAtualizar();}else{}
 
-
     if(!empty($_GET['conteinerExcluir'])){conteinerExcluir();}else{}
 
     if(!empty($_POST['incluirMovimentacao'])){incluirMovimentacao();}else{}
@@ -104,15 +103,24 @@
         $status = $_POST['status'];
         $categoria = $_POST['categoria'];
 
-        $sql = "INSERT INTO conteiner (numeroConteiner, cliente, tipo, `status`, categoria)
-        VALUES ('$numeroConteiner', '$cliente', '$tipo', '$status', '$categoria')";
-    
-        if (mysqli_query($conn, $sql)) {
-            header('Location: index.php?index= conteinerIncluir() SUCESSO!');
-        } else {
-            header('Location: index.php?index= conteinerIncluir() ERRO!');
-            //mysqli_connect_error();
+        $sql = "SELECT * FROM conteiner WHERE numeroConteiner ='".$_POST['numeroConteiner']."'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+
+        if($row['numeroConteiner'] != $numeroConteiner){
+            $sql = "INSERT INTO conteiner (numeroConteiner, cliente, tipo, `status`, categoria)
+            VALUES ('$numeroConteiner', '$cliente', '$tipo', '$status', '$categoria')";
+        
+            if (mysqli_query($conn, $sql)) {
+                header('Location: index.php?index= conteinerIncluir() SUCESSO!');
+            } else {
+                header('Location: index.php?index= conteinerIncluir() ERRO!');
+                //mysqli_connect_error();
+            }
+        }else{
+            header('Location: index.php?index= Contêiner Já Cadastrado!');
         }
+
         mysqli_close($conn);
     }
 
@@ -137,9 +145,9 @@
         $sql = "UPDATE conteiner SET cliente='$cliente', tipo='$tipo', `status`='$status', categoria='$categoria' WHERE numeroConteiner='$numeroConteiner'";
     
         if (mysqli_query($conn, $sql)) {
-            header('Location: conteiner.php?retorno= conteinerAtualizar() SUCESSO!');
+            header('Location: conteinerListar.php?retorno= conteinerAtualizar() SUCESSO!');
         } else {
-            header('Location: conteiner.php?retorno= conteinerAtualizar() ERRO!');
+            header('Location: conteinerListar.php?retorno= conteinerAtualizar() ERRO!');
         }
     
         mysqli_close($conn);
@@ -177,9 +185,9 @@
         $sql = "DELETE FROM conteiner WHERE numeroConteiner='".$_GET['conteinerExcluir']."'";
     
         if (mysqli_query($conn, $sql)) {
-            header('Location: conteinerListar.php?conteiner=Exclusão contêiner sucesso!');
+            header('Location: conteinerListar.php?retorno=conteinerExcluir() sucesso!');
         } else {
-            header('Location: conteinerListar.php?conteiner=Exclusão contêiner erro!');
+            header('Location: conteinerListar.php?retorno=conteinerExcluir() ERRO!');
         }
         mysqli_close($conn);
     }

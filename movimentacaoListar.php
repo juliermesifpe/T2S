@@ -26,7 +26,7 @@
                     $sql = "SELECT * FROM movimentacao ORDER BY ".$_POST['movimentacaoListarOrdenar']." ";
                     $result = mysqli_query($conn, $sql);
                 }else{
-                    $sql = "SELECT * FROM movimentacao";
+                    $sql = "SELECT * FROM movimentacao ORDER BY id";
                 $result = mysqli_query($conn, $sql);
                 }
                 

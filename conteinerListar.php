@@ -8,6 +8,8 @@
     <body>
         <?php include "cabecalho.php"; ?>
 
+
+
         <main>
            <?php
                 $servername = "localhost:3308";
@@ -30,7 +32,7 @@
                     $result = mysqli_query($conn, $sql);
                 }
                 
-                if(!empty($_GET['conteiner'])){echo $_GET['conteiner'];}
+                if(!empty($_GET['retorno'])){echo $_GET['retorno'];}
 
                 echo '<div class="tabela">';
                     echo '<h1>Contêiner Cadastrados</h1>';
@@ -56,7 +58,7 @@
                                 echo '<td>'.$row['status'].'</td>';
                                 echo '<td>'.$row['categoria'].'</td>';
                                 echo '<td><a href="movimentacaoIncluir.php?operacoes='.$row['numeroConteiner'].'"><input type="button" value="Realizar"></a></td>';
-                                echo '<td><a href="atualizarConteiner.php?conteinerAtualizar='.$row['numeroConteiner'].'"><input type="button" value="Atualizar"></a></td>';
+                                echo '<td><a href="conteinerAtualizar.php?conteinerAtualizar='.$row['numeroConteiner'].'"><input type="button" value="Atualizar"></a></td>';
                                 echo '<td><a href="funcoes.php?conteinerExcluir='.$row['numeroConteiner'].'"><input type="button" value="Excluir"></a></td>';  
                             echo '</tr>';
                         echo '</tbody>';}

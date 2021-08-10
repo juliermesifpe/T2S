@@ -23,7 +23,7 @@
                     die(mysqli_connect_error());
                 }
 
-                $sql = "SELECT * FROM conteiner WHERE numeroConteiner ='".$_GET['atualizarConteiner']."'";
+                $sql = "SELECT * FROM conteiner WHERE numeroConteiner ='".$_GET['conteinerAtualizar']."'";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
             ?>
@@ -43,21 +43,21 @@
 
                     <label for="">Tipo:</label>
                     <select name="tipo" required>
-                        <option Value=""><?php echo $row['tipo']?></option>
+                        <option Value="<?php echo $row['tipo']?>"><?php echo $row['tipo']?></option>
                         <option Value="20">20</option>
                         <option value="40">40</option>
                     </select>
 
                     <label for="">Status:</label>
                     <select name="status" required>
-                        <option Value=""><?php echo $row['status']?></option>
+                        <option Value="<?php echo $row['status']?>"><?php echo $row['status']?></option>
                         <option Value="cheio">Cheio</option>
                         <option value="vazio">Vazio</option>
                     </select>
 
                     <label for="">Categoria:</label>
                     <select name="categoria" required>
-                        <option value=""><?php echo $row['categoria']?></option>
+                        <option value="<?php echo $row['categoria']?>"><?php echo $row['categoria']?></option>
                         <option Value="importacao">Importação</option>
                         <option value="exportacao">Exportação</option>
                     </select>
