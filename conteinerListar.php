@@ -75,7 +75,7 @@
                                 </select>
 
                                 <section class="filtrar">
-                                    <input type="submit" value="Filtrar" >
+                                    <input type="submit" value="Aplicar" >
                                 </section>
                             </div>
                         </form>

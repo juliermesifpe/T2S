@@ -76,7 +76,7 @@
                                 </select>
 
                                 <section class="movimentacaoFiltrar">
-                                    <input type="submit" value="Filtrar" >
+                                    <input type="submit" value="Aplicar" >
                                 </section>
 
                                 <section class="movimentacaoRelatorio">
