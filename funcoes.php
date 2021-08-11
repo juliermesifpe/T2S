@@ -87,12 +87,13 @@
     }
 
     function conteinerIncluir(){
-        $servername = "localhost:3308";
-        $username = "root";
-        $password = "";
-        $dbname = "T2S";
-
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+      
+        $conn = mysqli_connect(
+            $servername = "localhost:3308", 
+            $username = "root",  
+            $password = "", 
+            $dbname = "T2S"
+        );
         
         if (!$conn) {
             die(mysqli_connect_error());
@@ -104,22 +105,25 @@
         $status = $_POST['status'];
         $categoria = $_POST['categoria'];
 
-        $sql = "SELECT * FROM conteiner WHERE numeroConteiner ='".$_POST['numeroConteiner']."'";
+        $sql = "SELECT * FROM conteiner WHERE '".$_POST['numeroConteiner']."' ";
         $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
+        $row = mysqli_num_rows($result);
 
-        if($row['numeroConteiner'] != $numeroConteiner){
+        echo $row;
+
+        if($row['numeroConteiner'] != $_POST['numeroConteiner']){
             $sql = "INSERT INTO conteiner (numeroConteiner, cliente, tipo, `status`, categoria)
             VALUES ('$numeroConteiner', '$cliente', '$tipo', '$status', '$categoria')";
         
             if (mysqli_query($conn, $sql)) {
-                header('Location: index.php?index= conteinerIncluir() SUCESSO!');
+                //header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
             } else {
-                header('Location: index.php?index= conteinerIncluir() ERRO!');
+                //header('Location: index.php?retorno= conteinerIncluir() ERRO!');
                 //mysqli_connect_error();
             }
+            echo $sql;
         }else{
-            header('Location: index.php?index= Contêiner Já Cadastrado!');
+            header('Location: index.php?retorno= Contêiner Já Cadastrado!');
         }
 
         mysqli_close($conn);

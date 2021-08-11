@@ -8,7 +8,7 @@
     <body>
         <?php include "cabecalho.php"; ?>
 
-        <?php if(!empty($_GET['index'])){echo $_GET['index'];}?>    
+        <?php if(!empty($_GET['retorno'])){echo $_GET['retorno'];}?>    
         
         <main>
             <div class="formulario">
