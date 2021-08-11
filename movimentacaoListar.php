@@ -31,10 +31,35 @@
                 }
                 
                 if(!empty($_GET['retorno'])){echo $_GET['retorno'];}
+
+               
         
                 echo '<div class="tabela">';
-                    echo '<h1>Movimentações Realizadas</h1>';
-                    
+                echo '<h1>Movimentações Realizadas</h1>';
+                
+                    echo'
+                    <form action="movimentacaoListar.php" method="post">
+                        <div class="movimentacaoPesquisar">
+                            <select name="movimentacaoListarOrdenar" class="movimentacaoListarOrdenar" required>
+                                <option value="">Ordenar</option>
+                                <option Value="id">Número Id</option>
+                                <option value="movimentacao">Movimentação</option>
+                                <option Value="dataInicio">Data e Hora Inicial</option>
+                                <option value="dataFim">Data e Hora Final</option>
+                                <option value="fkNumeroConteiner">Número Contêiner</option>
+                            </select>
+
+                            <section class="movimentacaoFiltrar">
+                                <input type="submit" value="Aplicar" >
+                            </section>
+
+                            <section class="movimentacaoRelatorio">
+                                <a href="movimentacaoRelatorio.php"><input type="button" value="Relatório"></a>
+                            </section>
+                        </div>
+                    </form>
+                ';
+                
                     echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
@@ -63,29 +88,7 @@
                             echo '</tr>';
                         echo '</tfoot>'; 
                     echo '</table>';
-                    echo'
-                        <form action="movimentacaoListar.php" method="post">
-                            <div class="movimentacaoPesquisar">
-                                <select name="movimentacaoListarOrdenar" class="movimentacaoListarOrdenar" required>
-                                    <option value="">Ordenar</option>
-                                    <option Value="id">Número Id</option>
-                                    <option value="movimentacao">Movimentação</option>
-                                    <option Value="dataInicio">Data e Hora Inicial</option>
-                                    <option value="dataFim">Data e Hora Final</option>
-                                    <option value="fkNumeroConteiner">Número Contêiner</option>
-                                </select>
-
-                                <section class="movimentacaoFiltrar">
-                                    <input type="submit" value="Aplicar" >
-                                </section>
-
-                                <section class="movimentacaoRelatorio">
-                                    <a href="movimentacaoRelatorio.php"><input type="button" value="Relatório"></a>
-                                </section>
-                            </div>
-                        </form>
-                    ';
-                echo '</div>'
+                echo '</div>';
            ?>
         </main>
                            

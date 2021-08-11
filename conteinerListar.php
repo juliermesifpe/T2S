@@ -8,8 +8,6 @@
     <body>
         <?php include "cabecalho.php"; ?>
 
-
-
         <main>
            <?php
                 $servername = "localhost:3308";
@@ -36,6 +34,25 @@
 
                 echo '<div class="tabela">';
                     echo '<h1>Contêiner Cadastrados</h1>';
+                    echo'
+                    <form action="conteinerListar.php" method="post">
+                        <div class="pesquisar">
+                            
+                            <select name="conteinerOrdenar" class="ordenar" required>
+                                <option value="">Ordenar</option>
+                                <option Value="numeroConteiner">Número Contêiner</option>
+                                <option value="cliente">Cliente</option>
+                                <option Value="tipo">Tipo</option>
+                                <option value="status">Status</option>
+                                <option value="categoria">Categoria</option>
+                            </select>
+
+                            <section class="filtrar">
+                                <input type="submit" value="Aplicar" >
+                            </section>
+                        </div>
+                    </form>
+                ';
                     echo '<table>';
                         echo '<thead>';
                             echo '<tr>';
@@ -63,25 +80,6 @@
                             echo '</tr>';
                         echo '</tbody>';}
                     echo '</table>';
-                    echo'
-                        <form action="conteinerListar.php" method="post">
-                            <div class="pesquisar">
-                                
-                                <select name="conteinerOrdenar" class="ordenar" required>
-                                    <option value="">Ordenar</option>
-                                    <option Value="numeroConteiner">Número Contêiner</option>
-                                    <option value="cliente">Cliente</option>
-                                    <option Value="tipo">Tipo</option>
-                                    <option value="status">Status</option>
-                                    <option value="categoria">Categoria</option>
-                                </select>
-
-                                <section class="filtrar">
-                                    <input type="submit" value="Aplicar" >
-                                </section>
-                            </div>
-                        </form>
-                    ';
                 echo '</div>'; 
             ?>
         </main>

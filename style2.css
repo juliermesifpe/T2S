@@ -120,9 +120,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    justify-self: center;
+    justify-self: end;
+    margin-left: 50%;
     width: 50%;
-    margin: 0 auto;
     column-gap: 50px;
 }
 .ordenar{
