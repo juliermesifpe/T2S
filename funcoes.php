@@ -99,12 +99,12 @@
             die(mysqli_connect_error());
         }
 
-        $sql = "SELECT * FROM conteiner WHERE '".$_POST['numeroConteiner']."' ";
+        $sql = "SELECT * FROM conteiner WHERE '".$_POST['numeroConteiner']."'";
         $result = mysqli_query($conn, $sql);
         $row =  mysqli_fetch_assoc($result);
-
+        $numeroConteiner = $_POST['numeroConteiner'];
         if($row['numeroConteiner'] != $_POST['numeroConteiner']){
-            $sql = 'INSERT INTO conteiner (
+            $sql = "INSERT INTO conteiner (
                 numeroConteiner, 
                 cliente, 
                 tipo, 
@@ -112,17 +112,19 @@
                 categoria
             )
             VALUES (
-                '.$_POST['numeroConteiner'].', 
-                '.$_POST['cliente'].',
-                '.$_POST['tipo'].',
-                '.$_POST['status'].',
-                '.$_POST['categoria'].'
-            )';
+                '".$_POST['numeroConteiner']."'
+                '".$_POST['cliente']."',
+                '".$_POST['tipo']."',
+                '".$_POST['status']."',
+                '".$_POST['categoria']."'
+            )";
+
+            echo $sql;
         
             if (mysqli_query($conn, $sql)) {
-                header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
+                //header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
             } else {
-                header('Location: index.php?retorno= conteinerIncluir() ERRO!');
+                //header('Location: index.php?retorno= conteinerIncluir() ERRO!');
                 //mysqli_connect_error();
             }
         }else{

@@ -163,7 +163,7 @@
     grid-template-rows: 1fr 1fr 1fr;
     justify-self: center;
     width: 60%;
-    margin: 0 auto;
+    margin-left: 40%;
     column-gap: 50px;
 }
 .movimentacaoListarOrdenar{
