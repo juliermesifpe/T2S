@@ -34,7 +34,14 @@
                     $sql = "SELECT numeroConteiner, cliente FROM conteiner ORDER BY ".$_POST['movimentacaoOrdenar']."";
                     $result = mysqli_query($conn, $sql);
                 }
-                    echo '<div class="tabela">
+
+                    echo'<div id="buscar">
+                        <input type="text" name="pesquisar" placeholder="Pesquisar" id="pesquisar">
+                    
+                        <input type="submit" value="Filtrar" id="filtrar">
+                    </div>
+                    
+                    <div class="tabela">
                         
                         <h1>Total de Movimentações</h1>
 

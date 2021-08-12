@@ -216,14 +216,16 @@
     grid-template-columns: 1fr 1fr;
     width: 30%;
     margin: 100px 0 20px 60%;
+    column-gap: 50px;
 }
-#divFiltrar div{
-   
+#buscar input{
+    text-align: center;
+    padding: 3px;
+    background: gainsboro;
+    border-radius: 10px;
+    font-weight: bold;
+    
 }
-#divFiltrar input{
-}
-
-#divFiltrar #pesquisar{
-   
-
+#buscar input:hover{
+    color: royalblue;
 }

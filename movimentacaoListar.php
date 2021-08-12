@@ -29,15 +29,46 @@
                     $sql = "SELECT * FROM movimentacao ORDER BY id";
                     $result = mysqli_query($conn, $sql);
                 }
-                
+
                 if(!empty($_GET['retorno'])){echo $_GET['retorno'];}
 
-               
-        
-                echo '<div class="tabela">';
-                echo '<h1>Movimentações Realizadas</h1>';
+                echo'
+                <div id="buscar">
+                    <input type="text" name="pesquisar" placeholder="Pesquisar" id="pesquisar">
                 
-                    echo'
+                    <input type="submit" value="Filtrar" id="filtrar">
+                </div>
+
+                <div class="tabela">
+                    <h1>Movimentações Realizadas</h1>
+                
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Movimentação</th>
+                                <th>Data e Hora Inicial</th>
+                                    <th>Data e Hora Final</th>
+                                    <th colspan="1">Número do Contêiner</th>
+                                <th colspan="2">Opções</th>
+                            </tr>
+                        </thead>';
+                        
+                        while($row = mysqli_fetch_assoc($result)) {   
+                            echo '<tbody>
+                                <tr>
+                                    <td>'.$row['id'].'</td>
+                                    <td>'.$row['movimentacao'].'</td>
+                                    <td>'.date("d/m/Y H:i:s", strtotime($row['dataInicio'])).'</td>
+                                    <td>'.date("d/m/Y H:i:s", strtotime($row['dataFim'])).'</td>
+                                    <td>'.$row['fkNumeroConteiner'].'</td>
+                                    <td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'"> <input type="button" value="Atualizar"></a></td>
+                                    <td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'"> <input type="button" value="Excluir"></a></td>
+                                </tr>
+                            </tbody>';
+                        } 
+                    echo'</table>
+
                     <form action="movimentacaoListar.php" method="post">
                         <div class="movimentacaoPesquisar">
                             <select name="movimentacaoListarOrdenar" class="movimentacaoListarOrdenar" required>
@@ -58,38 +89,9 @@
                             </section>
                         </div>
                     </form>
-                ';
-                
-                    echo '<table>';
-                        echo '<thead>';
-                            echo '<tr>';
-                                echo '<th>Id</th>';
-                                echo '<th>Movimentação</th>';
-                                echo '<th>Data e Hora Inicial</th>';
-                                echo '<th>Data e Hora Final</th>';
-                                echo '<th colspan="1">Número do Contêiner</th>';
-                                echo '<th colspan="2">Opções</th>';
-                            echo '</tr>';
-                        echo '</thead>';
-                        while($row = mysqli_fetch_assoc($result)) {   
-                        echo '<tbody>';
-                            echo '<tr>';
-                                echo '<td>'.$row['id'].'</td>';
-                                echo '<td>'.$row['movimentacao'].'</td>';
-                                echo '<td>'.date("d/m/Y H:i:s", strtotime($row['dataInicio'])).'</td>';
-                                echo '<td>'.date("d/m/Y H:i:s", strtotime($row['dataFim'])).'</td>';
-                                echo '<td>'.$row['fkNumeroConteiner'].'</td>';
-                                echo '<td><a href="atualizarMovimentacao.php?atualizarMovimentacao='.$row['id'].'"> <input type="button" value="Atualizar"></a></td>';
-                                echo '<td><a href="funcoes.php?excluirMovimentacao='.$row['id'].'"> <input type="button" value="Excluir"></a></td>';  
-                            echo '</tr>';
-                        echo '</tbody>';} 
-                        echo '<tfoot>';
-                            echo '<tr>';
-                            echo '</tr>';
-                        echo '</tfoot>'; 
-                    echo '</table>';
-                echo '</div>';
-           ?>
+
+                </div>';
+            ?>
         </main>
                            
         <?php include "rodape.php"; ?>
