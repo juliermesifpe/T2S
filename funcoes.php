@@ -120,9 +120,9 @@
             echo $sql;
         
             if (mysqli_query($conn, $sql)) {
-                //header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
+                header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
             } else {
-                //header('Location: index.php?retorno= conteinerIncluir() ERRO!');
+                header('Location: index.php?retorno= conteinerIncluir() ERRO!');
                 mysqli_connect_error();
             }
         }else{
