@@ -10,12 +10,12 @@
 
         <main>
            <?php
-                $servername = "localhost:3308";
-                $username = "root";
-                $password = "";
-                $dbname = "T2S";
-                
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                $conn = mysqli_connect(  
+                    $servername = "localhost:3308",  
+                    $username = "root", 
+                    $password = "",
+                    $dbname = "T2S"
+                );
                 
                 if (!$conn) {
                     die(mysqli_connect_error());
@@ -31,10 +31,17 @@
                 }
                 
                 if(!empty($_GET['retorno'])){echo $_GET['retorno'];}
+               
 
-                echo '<div class="tabela">';
-                    echo '<h1>Contêiner Cadastrados</h1>';
-                    echo'
+                echo'<div id="buscar">
+                    <input type="text" name="pesquisar" placeholder="Pesquisar" id="pesquisar">
+                
+                    <input type="submit" value="Filtrar" id="filtrar">
+                </div>';
+               
+                echo '<div class="tabela">
+                   <h1>Contêiner Cadastrados</h1>
+                    
                     <form action="conteinerListar.php" method="post">
                         <div class="pesquisar">
                             
@@ -52,35 +59,36 @@
                             </section>
                         </div>
                     </form>
-                ';
-                    echo '<table>';
-                        echo '<thead>';
-                            echo '<tr>';
-                                echo '<th>Número Contêiner</th>';
-                                echo '<th>Cliente</th>';
-                                echo '<th>Tipo</th>';
-                                echo '<th>Status</th>';
-                                echo '<th>Categoria</th>';
-                                echo '<th colspan="1">Operações</th>';
-                                echo '<th colspan="2">Contêiner</th>';
-                            echo '</tr>';
-                        echo '</thead>';
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Número Contêiner</th>
+                                <th>Cliente</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>Categoria</th>
+                                <th colspan="1">Operações</th>
+                                <th colspan="2">Contêiner</th>
+                            </tr>
+                        </thead>';
                         
                         while($row = mysqli_fetch_assoc($result)) {   
-                        echo '<tbody>';
-                            echo '<tr>';
-                                echo '<td>'.$row['numeroConteiner'].'</td>';
-                                echo '<td>'.$row['cliente'].'</td>';
-                                echo '<td>'.$row['tipo'].'</td>';
-                                echo '<td>'.$row['status'].'</td>';
-                                echo '<td>'.$row['categoria'].'</td>';
-                                echo '<td><a href="movimentacaoIncluir.php?operacoes='.$row['numeroConteiner'].'"><input type="button" value="Realizar"></a></td>';
-                                echo '<td><a href="conteinerAtualizar.php?conteinerAtualizar='.$row['numeroConteiner'].'"><input type="button" value="Atualizar"></a></td>';
-                                echo '<td><a href="funcoes.php?conteinerExcluir='.$row['numeroConteiner'].'"><input type="button" value="Excluir"></a></td>';  
-                            echo '</tr>';
-                        echo '</tbody>';}
-                    echo '</table>';
-                echo '</div>'; 
+                            echo '<tbody>
+                                <tr>
+                                <td>'.$row['numeroConteiner'].'</td>
+                                <td>'.$row['cliente'].'</td>
+                                <td>'.$row['tipo'].'</td>
+                                <td>'.$row['status'].'</td>
+                                <td>'.$row['categoria'].'</td>
+                                <td><a href="movimentacaoIncluir.php?operacoes='.$row['numeroConteiner'].'"><input type="button" value="Realizar"></a></td>
+                                <td><a href="conteinerAtualizar.php?conteinerAtualizar='.$row['numeroConteiner'].'"><input type="button" value="Atualizar"></a></td>
+                                <td><a href="funcoes.php?conteinerExcluir='.$row['numeroConteiner'].'"><input type="button" value="Excluir"></a></td>
+                                </tr>
+                            </tbody>';
+                        }
+                    echo '</table>
+                </div>'; 
             ?>
         </main>
                            

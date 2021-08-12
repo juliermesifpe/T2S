@@ -73,7 +73,7 @@
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
-    margin: 100px 10%;
+    margin: 0px  10% 10% 100px;
     border: solid;
     padding: 20px;
     border-radius: 10px;
@@ -209,4 +209,21 @@
 }
 .movimentacaoRelatorio input:hover{
     color: royalblue;
+}
+
+#buscar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 30%;
+    margin: 100px 0 20px 60%;
+}
+#divFiltrar div{
+   
+}
+#divFiltrar input{
+}
+
+#divFiltrar #pesquisar{
+   
+
 }
