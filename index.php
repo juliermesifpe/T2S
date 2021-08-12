@@ -34,15 +34,15 @@
                     <label for="">Status:</label>
                     <select name="status" required>
                         <option Value=""></option>
-                        <option Value="cheio">Cheio</option>
-                        <option value="vazio">Vazio</option>
+                        <option Value="Cheio">Cheio</option>
+                        <option value="Vazio">Vazio</option>
                     </select>
 
                     <label for="">Categoria:</label>
                     <select name="categoria" required>
                         <option value=""></option>
-                        <option Value="importacao">Importação</option>
-                        <option value="exportacao">Exportação</option>
+                        <option Value="Importacao">Importação</option>
+                        <option value="Exportacao">Exportação</option>
                     </select>
 
                     <input type="submit" value="Enviar">

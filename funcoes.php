@@ -55,7 +55,7 @@
             tipo INT NOT NULL,
             `status` VARCHAR(5) NOT NULL,
             categoria VARCHAR(10) NOT NULL
-        )";
+        ) ENGINE=InnoDB DEFAULT CHARSET = utf8";
 
          if (mysqli_query($conn, $sql)) {
             //header('Location: index.php?index=Criação da tabela contêiner sucesso!');
@@ -72,7 +72,7 @@
             dataFim TIMESTAMP NOT NULL,
             fkNumeroConteiner VARCHAR(11) NOT NULL,
             FOREIGN KEY (fkNumeroConteiner) REFERENCES conteiner (numeroConteiner)
-        )";
+        ) ENGINE=InnoDB DEFAULT CHARSET = utf8";
 
         //TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             
@@ -120,10 +120,10 @@
             echo $sql;
         
             if (mysqli_query($conn, $sql)) {
-                header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
+                //header('Location: index.php?retorno= conteinerIncluir() SUCESSO!');
             } else {
-                header('Location: index.php?retorno= conteinerIncluir() ERRO!');
-                //mysqli_connect_error();
+                //header('Location: index.php?retorno= conteinerIncluir() ERRO!');
+                mysqli_connect_error();
             }
         }else{
             header('Location: index.php?retorno= Contêiner Já Cadastrado!');

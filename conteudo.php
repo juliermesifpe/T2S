@@ -7,6 +7,9 @@
         fk_numero_conteiner VARCHAR(11) NOT NULL,
         FOREIGN KEY (fk_numero_conteiner) REFERENCES conteiner (numero_conteiner)
     )";   
+
+    mysqli_query($conn, "SET NAMES 'utf-8'");
+    mysqli_query($conn, "SET CHARACTER_SET_CONNECTION=utf-8");
 ?>
 
                
